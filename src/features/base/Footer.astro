@@ -1,0 +1,99 @@
+---
+import ImgComp from "@/features/base/ImgComp.astro";
+import websiteSettings from "@/features/websiteSetting.json";
+
+const { logoIconSrc = websiteSettings.websiteLogo2 } = Astro.props;
+---
+
+<footer
+  class="w-full max-w-350 mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col h-full justify-end pt-20"
+>
+  <div class="bg-base-100 w-full p-6 md:p-10 text-base-content shadow-lg">
+    <div class="container mx-auto">
+      <div
+        class="flex flex-col sm:flex-row justify-start sm:justify-between mb-4"
+      >
+        <div class="flex justify-start items-start">
+          {
+            logoIconSrc.image && (
+              <a href="/" class="h-8">
+                <ImgComp
+                  img={logoIconSrc.image}
+                  height={32}
+                  class="w-full h-8 object-contain stroke-base-content fill-base-content"
+                />
+              </a>
+            )
+          }
+        </div>
+        <button
+          onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+          class="mt-8 flex items-center gap-2 text-base-content/70 text-sm hover:opacity-70 transition-opacity cursor-pointer"
+        >
+          <svg
+            class="stroke-base-content/70"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+          >
+          Back to top
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-y-10 gap-x-4">
+        {
+          websiteSettings.NavbarInsertion.length > 0 && (
+            <div class="flex flex-col gap-3">
+              <h4 class="text-sm text-base-content/60 mb-2">Pages</h4>
+              <ul class="flex flex-col gap-2 list-none">
+                {websiteSettings.NavbarInsertion.map(
+                  (link: { label: string; link: string }) => (
+                    <li>
+                      <a
+                        href={link.link}
+                        class="hover:text-base-content transition-colors duration-300 hover:underline underline-offset-4"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ),
+                )}
+              </ul>
+            </div>
+          )
+        }
+        {
+          websiteSettings.socialMedia.length > 0 && (
+            <div class="flex flex-col gap-3">
+              <h4 class="text-sm text-base-content/60 mb-2">Social</h4>
+              <ul class="flex flex-col gap-2 list-none">
+                {websiteSettings.socialMedia.map(
+                  (link: { platform: string; link: string }) => (
+                    <li>
+                      <a
+                        href={link.link}
+                        class="hover:text-base-content transition-colors duration-300 hover:underline underline-offset-4"
+                      >
+                        {link.platform}
+                      </a>
+                    </li>
+                  ),
+                )}
+              </ul>
+            </div>
+          )
+        }
+      </div>
+    </div>
+    <div class="pt-8 text-sm text-base-content/80">
+      <p>
+        © {new Date().getFullYear()} ZenShin Tech. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>

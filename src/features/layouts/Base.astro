@@ -1,0 +1,26 @@
+---
+import "@/global.css";
+import Footer from "@/features/base/Footer.astro";
+import NavBar from "@/features/base/NavBar.astro";
+import Animation from "@/features/base/Animation.astro";
+import BaseHeader from "@/features/base/BaseHeader.astro";
+import websiteSetting from "@/features/websiteSetting.json";
+
+const {
+  title = websiteSetting.defaultTitle,
+  description = websiteSetting.defaultDescription,
+  image = websiteSetting.defaultMetaImage,
+} = Astro.props;
+---
+
+<html lang={websiteSetting.websiteLanguage} data-theme="custom">
+  <head>
+    <BaseHeader title={title} description={description} image={image} />
+  </head>
+  <body class="scroll-smooth max-w-640 mx-auto">
+    <Animation />
+    <NavBar leftImg={image} />
+    <slot />
+    <Footer />
+  </body>
+</html>

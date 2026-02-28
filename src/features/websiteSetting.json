@@ -1,0 +1,57 @@
+{
+    "websiteUrl": "https://example.com",
+    "websiteLanguage": "en",
+    "websiteDirectionality": "ltr",
+    "defaultTitle": "Professional Business Solutions for All",
+    "defaultDescription": "Transform your online presence with our sleek business website template. Perfect for startups, agencies, and corporate brands",
+    "defaultMetaImage": {
+        "src": "business.jpg",
+        "alt": "Meta Image"
+    },
+    "websiteFavicon": {
+        "src": "favicon.svg",
+        "alt": "Favicon"
+    },
+    "websiteLogo1": {
+        "image": {
+            "src": "GRANDER.svg",
+            "alt": "Logo"
+        },
+        "label": "Top Navbar Logo"
+    },
+    "websiteLogo2": {
+        "image": {
+            "src": "GRANDER-footer.svg",
+            "alt": "Logo"
+        },
+        "label": "Bottom Navbar Logo"
+    },
+    "ctaLink": {
+        "label": "Contact Us",
+        "link": "/contact/"
+    },
+    "sitemapExcluded": [
+        "/404/"
+    ],
+    "listOfAuthrizedImgDomain": [
+        "cloudnary.com"
+    ],
+    "NavbarInsertion": [],
+    "listOfAddress": [],
+    "contactInfo": [],
+    "socialMedia": [],
+    "bodyFont": {
+        "link": "https://fonts.googleapis.com/css2?family=Inter+Tight:opsz,wght@9..144,100..1000&display=swap",
+        "name": "Inter Tight"
+    },
+    "headerFont": {
+        "link": "",
+        "name": ""
+    },
+    "HeaderInsertion": "",
+    "BodyInsertion": "",
+    "FooterInsertion": "",
+    "SideNavBar": "",
+    "deployMethod": "github",
+    "deployProjectName": "ai-plugin-starter"
+}

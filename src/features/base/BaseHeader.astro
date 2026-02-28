@@ -1,0 +1,117 @@
+---
+import "@/global.css";
+import websiteSetting from "@/features/websiteSetting.json";
+import { getLocalAssetsImg } from "@/features/base/utilities";
+import { getImage } from "astro:assets";
+import { AstroFont } from "astro-font";
+
+const { title, description, image } = Astro.props;
+
+const finalTitle = !title || title === "" ? websiteSetting.defaultTitle : title;
+const finalDescription =
+  !description || description === ""
+    ? websiteSetting.defaultDescription
+    : description;
+const finalImage =
+  !image || image.src === "" ? websiteSetting.defaultMetaImage : image;
+
+const findSourceImage = await getLocalAssetsImg(finalImage);
+const findFavSourceImage = await getLocalAssetsImg(
+  websiteSetting.websiteFavicon,
+);
+
+const isSvg = websiteSetting.websiteFavicon.src.toLowerCase().endsWith(".svg");
+
+const optimizedFavImg = isSvg
+  ? findFavSourceImage
+  : await getImage({
+      src: findFavSourceImage,
+      width: 50,
+      height: 50,
+      format: "webp",
+    });
+
+const optimizedMetaImage = await getImage({
+  src: findSourceImage,
+  width: 1200,
+  height: 630,
+  format: "webp",
+  quality: 80,
+});
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link
+  rel="icon"
+  type={isSvg ? "image/svg+xml" : "image/webp"}
+  href={isSvg ? findFavSourceImage.src : optimizedFavImg.src}
+/>
+
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Primary Meta Tags -->
+<title>{finalTitle}</title>
+<meta name="title" content={finalTitle} />
+<meta name="description" content={finalDescription} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={finalTitle} />
+<meta property="og:description" content={finalDescription} />
+<meta
+  property="og:image"
+  content={new URL(optimizedMetaImage.src, Astro.url)}
+/>
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={finalTitle} />
+<meta property="twitter:description" content={finalDescription} />
+<meta
+  property="twitter:image"
+  content={new URL(optimizedMetaImage.src, Astro.url)}
+/>
+
+<div>
+  <Fragment set:html={websiteSetting.HeaderInsertion} />
+</div>
+
+{
+  websiteSetting.bodyFont.link !== "" ? (
+    <AstroFont
+      config={[
+        {
+          src: [],
+          name: websiteSetting.bodyFont.name,
+          googleFontsURL: websiteSetting.bodyFont.link,
+          preload: true,
+          display: "swap",
+          selector: "body",
+          fallback: "sans-serif",
+        },
+      ]}
+    />
+  ) : null
+}
+{
+  websiteSetting.headerFont.link !== "" ? (
+    <AstroFont
+      config={[
+        {
+          src: [],
+          name: websiteSetting.headerFont.name,
+          googleFontsURL: websiteSetting.headerFont.link,
+          preload: true,
+          display: "swap",
+          selector: "h1, h2, h3, h4, h5, h6",
+          fallback: "serif",
+        },
+      ]}
+    />
+  ) : null
+}
