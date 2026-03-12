@@ -1,4 +1,9 @@
 {
-  "layouts": [],
+  "layouts": [
+    {
+      "label": "Default Page Layout",
+      "value": "Base"
+    }
+  ],
   "components": []
 }
