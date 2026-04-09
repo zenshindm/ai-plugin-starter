@@ -1,0 +1,25 @@
+---
+import { optimizeImagesInString } from "@/features/base/utilities";
+const { content } = Astro.props;
+const optimizedContent = optimizeImagesInString(content);
+---
+
+<section class="mx-auto max-w-5xl">
+    <Fragment class="prose" set:html={optimizedContent} />
+</section>
+
+<style>
+    @reference "#global.css";
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply text-base-content;
+    }
+    p,
+    li {
+        @apply text-base-content/80;
+    }
+</style>

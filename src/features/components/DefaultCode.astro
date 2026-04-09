@@ -1,0 +1,7 @@
+---
+const { content } = Astro.props;
+---
+
+<section class="mx-auto max-w-5xl">
+    <Fragment class="prose" set:html={content} />
+</section>

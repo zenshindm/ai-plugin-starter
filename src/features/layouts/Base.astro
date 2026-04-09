@@ -6,20 +6,23 @@ import BaseHeader from "@/features/base/BaseHeader.astro";
 import websiteSetting from "@/features/websiteSetting.json";
 
 const {
-  title = websiteSetting.defaultTitle,
-  description = websiteSetting.defaultDescription,
-  image = websiteSetting.defaultMetaImage,
+    title = websiteSetting.defaultTitle,
+    description = websiteSetting.defaultDescription,
+    image = websiteSetting.defaultMetaImage,
 } = Astro.props;
 ---
 
 <html lang={websiteSetting.websiteLanguage} data-theme="custom">
-  <head>
-    <BaseHeader title={title} description={description} image={image} />
-  </head>
-  <body class="scroll-smooth max-w-640 mx-auto">
-    <Animation />
-    <NavBar leftImg={image} />
-    <slot />
-    <Footer />
-  </body>
+    <head>
+        <BaseHeader title={title} description={description} image={image} />
+    </head>
+    <body
+        class="scroll-smooth min-block-svh max-w-640 mx-auto [scrollbar-gutter:stable]"
+    >
+        <Fragment set:html={websiteSetting.BodyInsertion} />
+        <Animation />
+        <NavBar leftImg={image} />
+        <slot />
+        <Footer />
+    </body>
 </html>
