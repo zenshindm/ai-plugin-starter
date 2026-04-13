@@ -27,7 +27,7 @@
     "label": "Bottom Navbar Logo"
   },
   "ctaLink": {
-    "label": "Contact Us",
+    "content": "Contact Us",
     "link": "/contact/",
     "ref": ""
   },
