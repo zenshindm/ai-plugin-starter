@@ -1,55 +1,53 @@
 {
-    "websiteUrl": "https://example.com",
-    "websiteLanguage": "en",
-    "websiteDirectionality": "ltr",
-    "defaultTitle": "Professional Business Solutions for All",
-    "defaultDescription": "Transform your online presence with our sleek business website template. Perfect for startups, agencies, and corporate brands",
-    "defaultMetaImage": {
-        "src": "business.jpg",
-        "alt": "Meta Image"
+  "websiteUrl": "https://example.com",
+  "websiteLanguage": "en",
+  "websiteDirectionality": "ltr",
+  "defaultTitle": "Professional Business Solutions for All",
+  "defaultDescription": "Transform your online presence with our sleek business website template. Perfect for startups, agencies, and corporate brands",
+  "defaultMetaImage": {
+    "src": "business.jpg",
+    "alt": "Meta Image"
+  },
+  "websiteFavicon": {
+    "src": "favicon.svg",
+    "alt": "Favicon"
+  },
+  "websiteLogo1": {
+    "image": {
+      "src": "GRANDER.svg",
+      "alt": "Logo"
     },
-    "websiteFavicon": {
-        "src": "favicon.svg",
-        "alt": "Favicon"
+    "label": "Top Navbar Logo"
+  },
+  "websiteLogo2": {
+    "image": {
+      "src": "GRANDER-footer.svg",
+      "alt": "Logo"
     },
-    "websiteLogo1": {
-        "image": {
-            "src": "GRANDER.svg",
-            "alt": "Logo"
-        },
-        "label": "Top Navbar Logo"
-    },
-    "websiteLogo2": {
-        "image": {
-            "src": "GRANDER-footer.svg",
-            "alt": "Logo"
-        },
-        "label": "Bottom Navbar Logo"
-    },
-    "ctaLink": {
-        "label": "Contact Us",
-        "link": "/contact/"
-    },
-    "sitemapExcluded": [
-        "/404/"
-    ],
-    "listOfAuthrizedImgDomain": [
-        "cloudnary.com"
-    ],
-    "NavbarInsertion": [],
-    "listOfAddress": [],
-    "contactInfo": [],
-    "socialMedia": [],
-    "bodyFont": {
-        "source": "fontsource",
-        "name": "Inter Tight"
-    },
-    "headerFont": {
-        "source": "fontsource",
-        "name": "Inter Tight"
-    },
-    "HeaderInsertion": "",
-    "BodyInsertion": "",
-    "FooterInsertion": "",
-    "SideNavBar": ""
+    "label": "Bottom Navbar Logo"
+  },
+  "ctaLink": {
+    "label": "Contact Us",
+    "link": "/contact/",
+    "ref": ""
+  },
+  "sitemapExcluded": ["/404/"],
+  "listOfAuthrizedImgDomain": ["cloudnary.com"],
+  "NavbarInsertion": [],
+  "listOfAddress": [],
+  "contactInfo": [],
+  "socialMedia": [],
+  "messageInfo": [],
+  "bodyFont": {
+    "source": "fontsource",
+    "name": "Inter Tight"
+  },
+  "headerFont": {
+    "source": "fontsource",
+    "name": "Inter Tight"
+  },
+  "HeaderInsertion": "",
+  "BodyInsertion": "",
+  "FooterInsertion": "",
+  "SideNavBar": ""
 }
