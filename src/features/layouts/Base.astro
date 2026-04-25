@@ -12,13 +12,15 @@ const {
 } = Astro.props;
 ---
 
-<html lang={websiteSetting.websiteLanguage} data-theme="custom">
+<html
+    lang={websiteSetting.websiteLanguage}
+    data-theme="custom"
+    class="scroll-smooth"
+>
     <head>
         <BaseHeader title={title} description={description} image={image} />
     </head>
-    <body
-        class="scroll-smooth min-block-svh max-w-640 mx-auto [scrollbar-gutter:stable]"
-    >
+    <body class="min-block-svh max-w-640 mx-auto [scrollbar-gutter:stable]">
         <Fragment set:html={websiteSetting.BodyInsertion} />
         <Animation />
         <NavBar leftImg={image} />

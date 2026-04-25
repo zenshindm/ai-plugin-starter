@@ -22,7 +22,6 @@ function getProvider(name = "google") {
 
 // https://astro.build/config
 export default defineConfig({
-  prefetch: true,
   site: websiteSetting.websiteUrl,
   fonts: [
     {
@@ -39,7 +38,20 @@ export default defineConfig({
     },
   ],
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [
+      tailwindcss(),
+      {
+        name: "watch-features-json",
+        configureServer(server) {
+          server.watcher.add("./src/features/**/*.json");
+          server.watcher.on("change", (file) => {
+            if (file.includes("src\\features") && file.endsWith(".json")) {
+              server.restart();
+            }
+          });
+        },
+      },
+    ],
   },
   integrations: [
     sitemap({

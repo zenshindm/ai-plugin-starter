@@ -33,7 +33,13 @@
   },
   "sitemapExcluded": ["/404/"],
   "listOfAuthrizedImgDomain": ["cloudnary.com"],
-  "NavbarInsertion": [],
+  "NavbarInsertion": [
+    {
+      "label": "About",
+      "link": "/about",
+      "type": "single"
+    }
+  ],
   "listOfAddress": [],
   "contactInfo": [],
   "socialMedia": [],
